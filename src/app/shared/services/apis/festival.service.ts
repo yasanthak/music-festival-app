@@ -10,6 +10,7 @@ import { Festivals, Bands } from 'src/app/shared/models/festival';
 })
 export class FestivalService {
 
+  // unable to use this api to returned results .workaround was implemented refer README.md 
   private festivalRequestUrl = 'http://eacodingtest.digital.energyaustralia.com.au/api/v1/festivals';
   private url = 'http://localhost:3000/api/v1/festivals';
   festivals = new Festivals();

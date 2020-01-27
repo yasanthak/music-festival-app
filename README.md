@@ -2,6 +2,10 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.20.
 
+## Run Node Server 
+
+Run `npm run start:server` for a Node server. Navigate to `http://localhost:3000/api/v1/festivals` to fetch api results. I had to implement this since I'm unable to retrieve data using Swagger API . 
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

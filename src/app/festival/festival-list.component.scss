@@ -1,4 +1,15 @@
-.recordLabel{
-  font-size: large;
-  color: blue($color: #000000);
+.recordlabel{
+  font-weight: 700;
+  color: lightskyblue;
+}
+
+.bandname {
+  font-weight: 500;
+  color: rgb(71, 71, 71);
+}
+
+.festivalname {
+  font-weight: 300;
+  color: rgb(141, 145, 144);
+  margin-left: 20px
 }

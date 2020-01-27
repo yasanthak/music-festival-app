@@ -3,9 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { Festivals, Bands } from 'src/app/shared/models/festival';
-import { DataService } from './data-service';
-
-
 
 
 @Injectable({
@@ -14,13 +11,11 @@ import { DataService } from './data-service';
 export class FestivalService {
 
   private festivalRequestUrl = 'http://eacodingtest.digital.energyaustralia.com.au/api/v1/festivals';
-  private url = 'http://localhost:3000/api/currencies';
-
-  private Url = this.dataService.getJson();
+  private url = 'http://localhost:3000/api/v1/festivals';
   festivals = new Festivals();
   bands = new Bands();
 
-  constructor(private http: HttpClient, private dataService: DataService) { }
+  constructor(private http: HttpClient) { }
 
   getFestivalResults(): Observable<any> {
 

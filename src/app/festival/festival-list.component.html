@@ -1,14 +1,14 @@
-<h1>List of Festivals each Bands Attended</h1>
+<h3>List of bands by each record label</h3>
 
 
 
 <ul *ngFor="let festival of festivalLists; let i = index" class="list-group">
  
-  <li class="list-group-item">  {{ festival.recordLabel }}
+  <li class="list-group-item recordlabel">  {{ festival.recordLabel }}
     
     <ul *ngFor="let band of festival.bands">
-        <li class="list-group-item">  {{band.name}}<br>
-          <span> {{band.festivalName}}</span>
+        <li class="list-group-item bandname">  {{band.name}}<br>
+          <span class="festivalname"> {{band.festivalName}}</span>
         </li>
         
     </ul>

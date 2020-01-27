@@ -4,11 +4,11 @@
 
 <ul *ngFor="let festival of festivalLists; let i = index" class="list-group">
  
-  <li class="list-group-item recordlabel">  {{ festival.recordLabel }}
+  <li class="list-group-item recordlabel">  {{ festival.recordLabel === '' ? 'No Record label' :  festival.recordLabel }}
     
     <ul *ngFor="let band of festival.bands">
         <li class="list-group-item bandname">  {{band.name}}<br>
-          <span class="festivalname"> {{band.festivalName}}</span>
+          <span class="festivalname"> {{band.festivalName === '' ? 'No Festival' :  band.festivalName}}</span>
         </li>
         
     </ul>

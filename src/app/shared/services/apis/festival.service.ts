@@ -13,7 +13,9 @@ export class FestivalService {
   private festivalRequestUrl = 'http://eacodingtest.digital.energyaustralia.com.au/api/v1/festivals';
   private url = 'http://localhost:3000/api/v1/festivals';
   festivals = new Festivals();
+  festivalCloned = new Festivals();
   bands = new Bands();
+  bandsCloned = new Bands();
 
   constructor(private http: HttpClient) { }
 
@@ -22,86 +24,76 @@ export class FestivalService {
     return this.http.get<any>(this.url)
       .pipe(map(res => {
 
-        // console.log(res);
-        let tranFormedBands = [];
-        let tranFormedArray = [];
-        let listOfFestivals = [];
         const festivalList = res;
-        let  festivalCopy: Festivals
-
+        let tranFormedBands = [];
+       
         festivalList.forEach(fest => {
 
           fest.bands.forEach(bands => {
-           
+
             this.bands.name = bands.name;
-            this.bands.festivalName = fest.name;
+            this.bands.festivalName = fest.name === undefined ? "" : fest.name;
 
-            // new band object
-            const bandCopy = Object.assign({}, this.bands);
+            // band object needs to be cloned before pushing
+            this.bandsCloned = Object.assign({}, this.bands);
 
-            
             /// festival array needs to be empty before pushing new values
             this.festivals.bands = [];
-            this.festivals.bands.push(bandCopy);
-            this.festivals.recordLabel = bands.recordLabel;
-             // new festival object 
-             festivalCopy = Object.assign({}, this.festivals);
+            this.festivals.bands.push(this.bandsCloned);
+            this.festivals.recordLabel = bands.recordLabel === undefined ? "" : bands.recordLabel;
 
-             if(this.festivals.recordLabel !== festivalCopy.recordLabel) {
-             
-              
-            }
-            tranFormedBands.push(festivalCopy);
+            // new festival object needs to be cloned before pushing 
+            this.festivalCloned = Object.assign({}, this.festivals);
+            tranFormedBands.push(this.festivalCloned);
 
-            // tranFormedBands.forEach(bd => {
-            //   if(bd.recordLabel === bands.recordLabel) {
-            //     tranFormedBands.pop();
-            //   }
-            // })
-
-
-            /// use speard operator to clone the object and push it to festivals
-            // tranFormedBands  = [...festivals];
-            // tranFormedBands.push(bands);
           });
-          // tranFormedArray.push(tranFormedBands);
+
         });
 
-        /// clone the transfomed bands array 
-        // tranFormedArray = [...tranFormedBands];
-
-        // tranFormedBands.forEach((band) => {
-        //     if(band.recordLabel.indexOf()) {
-
-
-        //     }
-        // })
-
-
-        // tranFormedBands.filter(function (item) {
-        //   tranFormedArray.forEach(function (cItem) {
-        //     if (cItem.recordLabel === item.recordLabel) {
-        //       listOfFestivals.push(item)
-        //     }
-        //   })
-        // });
+        tranFormedBands = tranFormedBands.sort(this.comparetoSort);
+        tranFormedBands = this.mergeRecordLables(tranFormedBands);
 
         return tranFormedBands;
 
-
-        // currencyList.forEach(result => {
-
-        //     const resultList = this.maxProfitForCurrency(result);
-        //     tranFormedArray.push(resultList);
-
-        // });
-
-        // return tranFormedArray;
 
       }),
         catchError(this.handleHttpError)
 
       );
+  }
+
+
+
+  private comparetoSort(a, b) {
+
+    const recordLabelA = a.recordLabel.toUpperCase();
+    const recordLabelB = b.recordLabel.toUpperCase();
+
+    let comparison = 0;
+    if (recordLabelA > recordLabelB) {
+      comparison = 1;
+    } else if (recordLabelA < recordLabelB) {
+      comparison = -1;
+    }
+
+    return comparison;
+  }
+
+  private mergeRecordLables(listOfFestivals) {
+
+    const mergeRecordLables = [...listOfFestivals.reduce(function (a, b) {
+      let name = b.recordLabel;
+      let festivalObj = a.get(name);
+
+      return festivalObj ? a.set(name, {
+        recordLabel: name,
+        bands: [...new Set(festivalObj.bands.concat(b.bands))]
+      }) : a.set(name, b);
+    }, new Map())
+      .values()];
+
+    return mergeRecordLables;
+
   }
 
   private handleHttpError(err) {

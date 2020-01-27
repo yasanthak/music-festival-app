@@ -62,19 +62,20 @@ export class FestivalService {
       );
   }
 
+ 
 
 
   private comparetoSort(a, b) {
 
     const recordLabelA = a.recordLabel.toUpperCase();
     const recordLabelB = b.recordLabel.toUpperCase();
-
+    
     let comparison = 0;
-    if (recordLabelA > recordLabelB) {
+    if (recordLabelA > recordLabelB && (recordLabelA !== "" && recordLabelB !== "")) {
       comparison = 1;
-    } else if (recordLabelA < recordLabelB) {
+    } else if (recordLabelA < recordLabelB && (recordLabelA !== "" && recordLabelB !== "")) {
       comparison = -1;
-    }
+    } 
 
     return comparison;
   }

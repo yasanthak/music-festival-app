@@ -1,48 +1,28 @@
 [
     {
-        "name": "Trainerella",
+        "name": "LOL-palooza",
         "bands": [
             {
-                "name": "Manish Ditch",
-                "recordLabel": "ACR"
+                "name": "Werewolf Weekday",
+                "recordLabel": "XS Recordings"
             },
             {
-                "name": "YOUKRANE",
-                "recordLabel": "Anti Records"
+                "name": "Jill Black",
+                "recordLabel": "Fourth Woman Records"
             },
             {
-                "name": "Wild Antelope",
-                "recordLabel": "Still Bottom Records"
-            },
-            {
-                "name": "Adrian Venti",
-                "recordLabel": "Monocracy Records"
-            }
-        ]
-    },
-    {
-        "bands": [
-            {
-                "name": "Critter Girls",
-                "recordLabel": "ACR"
-            },
-            {
-                "name": "Propeller",
+                "name": "Frank Jupiter",
                 "recordLabel": "Pacific Records"
+            },
+            {
+                "name": "Winter Primates",
+                "recordLabel": ""
             }
         ]
     },
     {
         "name": "Small Night In",
         "bands": [
-            {
-                "name": "Squint-281",
-                "recordLabel": "Outerscope"
-            },
-            {
-                "name": "Green Mild Cold Capsicum",
-                "recordLabel": "Marner Sis. Recording"
-            },
             {
                 "name": "The Black Dashes",
                 "recordLabel": "Fourth Woman Records"
@@ -52,8 +32,37 @@
                 "recordLabel": "MEDIOCRE Music"
             },
             {
+                "name": "Green Mild Cold Capsicum",
+                "recordLabel": "Marner Sis. Recording"
+            },
+            {
+                "name": "Squint-281",
+                "recordLabel": "Outerscope"
+            },
+            {
                 "name": "Wild Antelope",
                 "recordLabel": "Marner Sis. Recording"
+            }
+        ]
+    },
+    {
+        "name": "Trainerella",
+        "bands": [
+            {
+                "name": "YOUKRANE",
+                "recordLabel": "Anti Records"
+            },
+            {
+                "name": "Adrian Venti",
+                "recordLabel": "Monocracy Records"
+            },
+            {
+                "name": "Wild Antelope",
+                "recordLabel": "Still Bottom Records"
+            },
+            {
+                "name": "Manish Ditch",
+                "recordLabel": "ACR"
             }
         ]
     },
@@ -74,22 +83,13 @@
         ]
     },
     {
-        "name": "LOL-palooza",
         "bands": [
             {
-                "name": "Werewolf Weekday",
-                "recordLabel": "XS Recordings"
+                "name": "Critter Girls",
+                "recordLabel": "ACR"
             },
             {
-                "name": "Winter Primates",
-                "recordLabel": ""
-            },
-            {
-                "name": "Jill Black",
-                "recordLabel": "Fourth Woman Records"
-            },
-            {
-                "name": "Frank Jupiter",
+                "name": "Propeller",
                 "recordLabel": "Pacific Records"
             }
         ]

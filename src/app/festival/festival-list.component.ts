@@ -24,7 +24,7 @@ export class FestivalListComponent implements OnInit {
       this.festivalService.getFestivalResults().subscribe(
           response => {
                this.festivalLists = response;
-               console.log(this.festivalLists);
+               console.log(JSON.stringify(this.festivalLists));
          
           },(err: any) => console.log(err)
         )

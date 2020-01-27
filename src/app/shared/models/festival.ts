@@ -1,10 +1,13 @@
-export interface MusicBands {
+export class Festivals {
   recordLabel: string;
-  bands: bands[];
+  bands: Bands[] = [];
 }
 
-export interface bands {
+export class Bands {
   name: string;
   festivalName: string[];
 
+  constructor(values: Object = {}){
+    Object.assign(this, values);
+  }
 }

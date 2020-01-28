@@ -6,8 +6,5 @@ export class Festivals {
 export class Bands {
   name: string;
   festivalName: string[];
-
-  constructor(values: Object = {}){
-    Object.assign(this, values);
-  }
+  
 }

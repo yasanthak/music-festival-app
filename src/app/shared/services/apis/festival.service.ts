@@ -11,7 +11,7 @@ import { Festivals, Bands } from 'src/app/shared/models/festival';
 export class FestivalService {
 
   // unable to use this api to returned results .workaround was implemented refer README.md 
-  // CORS is not enabled from api side 
+  // CORS is not enabled from api side due to this node server was created to access the api
   private festivalRequestUrl = 'http://eacodingtest.digital.energyaustralia.com.au/api/v1/festivals';
   private url = 'http://localhost:3000/api/v1/festivals';
   festivals = new Festivals();
@@ -28,7 +28,7 @@ export class FestivalService {
    
     return this.http.get<any>(this.url)
       .pipe(map(res => {
-        
+
         let tranFormedBands = [];
         const festivalList = res;
 

@@ -24,8 +24,8 @@ app.get("/api/v1/festivals", (req, res, next) => {
    
   }).pipe(res);
 
-// const data = fs.readFileSync(datafile, 'utf8');
-//   res.status(200).json(JSON.parse(data));
+//  const data = fs.readFileSync(datafile, 'utf8');
+//    res.status(200).json(JSON.parse(data));
 });
 
 module.exports = app;

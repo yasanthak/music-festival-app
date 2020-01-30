@@ -1,0 +1,9 @@
+<ng-container *ngIf="(festivalLists$ | async) as festivalLists">
+
+  <div *ngIf="festivalLists?.length > 0">
+
+    <festival-list [festivals]="festivalLists"></festival-list>
+
+  </div>
+
+</ng-container>

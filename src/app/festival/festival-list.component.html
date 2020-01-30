@@ -2,16 +2,17 @@
 
 
 
-<ul *ngFor="let festival of festivalLists; let i = index" class="list-group">
- 
-  <li class="list-group-item recordlabel">  {{ festival.recordLabel === '' ? 'No Record label' :  festival.recordLabel }}
-    
+<ul *ngFor="let festival of festivals; let i = index" class="list-group">
+
+  <li class="list-group-item recordlabel"> {{ festival.recordLabel === '' ? 'No Record label' : festival.recordLabel }}
+
     <ul *ngFor="let band of festival.bands">
-        <li class="list-group-item bandname">  {{band.name}}<br>
-          <span class="festivalname"> {{band.festivalName === '' ? 'No Festival' :  band.festivalName}}</span>
-        </li>
-        
+      <li class="list-group-item bandname"> {{band.name}}
+        <br>
+        <span class="festivalname"> {{band.festivalName === '' ? 'No Festival' : band.festivalName}}</span>
+      </li>
+
     </ul>
-    
+
   </li>
 </ul>

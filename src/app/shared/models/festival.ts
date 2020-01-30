@@ -1,6 +1,6 @@
 export class Festivals {
   recordLabel: string;
-  bands: Bands[] = [];
+  bands: Bands[] ;
 }
 
 export class Bands {

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { Festivals, Bands } from 'src/app/shared/models/festival';
@@ -11,6 +11,7 @@ import { Festivals, Bands } from 'src/app/shared/models/festival';
 export class FestivalService {
 
   // unable to use this api to returned results .workaround was implemented refer README.md 
+  // CORS is not enabled from api side 
   private festivalRequestUrl = 'http://eacodingtest.digital.energyaustralia.com.au/api/v1/festivals';
   private url = 'http://localhost:3000/api/v1/festivals';
   festivals = new Festivals();
@@ -18,15 +19,23 @@ export class FestivalService {
   bands = new Bands();
   bandsCloned = new Bands();
 
+  
+
   constructor(private http: HttpClient) { }
 
   getFestivalResults(): Observable<any> {
 
+   
     return this.http.get<any>(this.url)
       .pipe(map(res => {
-
-        const festivalList = res;
+        
         let tranFormedBands = [];
+        const festivalList = res;
+
+        if(festivalList === "") {
+          return tranFormedBands;
+        }
+        
        
         festivalList.forEach(fest => {
 
